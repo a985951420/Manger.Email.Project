@@ -25,7 +25,8 @@ namespace Email.Windows.EmailService
                 new EmailServiceInformation { HostName = "pop.vip.163.com", Port = 995, UseSsl = true, Type = EnumTools.EailType.POP3 }}
             },
             {"@163",new List<EmailServiceInformation>{
-                new EmailServiceInformation { HostName = "pop.163.com", Port = 995, UseSsl = true, Type = EnumTools.EailType.POP3 }
+                new EmailServiceInformation { HostName = "pop.163.com", Port = 995, UseSsl = true, Type = EnumTools.EailType.POP3 },
+                new EmailServiceInformation { HostName = "imap.163.com", Port = 993, UseSsl = true, Type = EnumTools.EailType.Imap }
             } },
             {"@qq",new List<EmailServiceInformation>{
                 new EmailServiceInformation{ HostName="pop.qq.com", Port=995, UseSsl =true , Type= EnumTools.EailType.POP3},

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,7 +30,6 @@ namespace Email.Windows
         {
             LoadTree();
             this.grid_View.AutoGenerateColumns = false;
-            //this.grid_View.RowPostPaint += new DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             lbl_version.Text = "1.0";
         }
 
@@ -188,21 +186,6 @@ namespace Email.Windows
                 await service.mailAsync(async (message, index, count) =>
                 {
                     await DbValidation(message).ConfigureAwait(false);
-                    if (number == null)
-                    {
-                        lbl_progressbar.Maximum = count;
-                        lbl_thisNumber.Text = $"获取第：{index} 条 总：{count}";
-                        if (index == count)
-                        {
-                            lbl_progressbar.Value = count;
-                            Thread.Sleep(3 * 1000);
-                            lbl_progressbar.Value = 0;
-                            lbl_progressbar.Visible = false;
-                            lbl_thisNumber.Visible = false;
-                            return;
-                        }
-                        lbl_progressbar.Value += 1;
-                    }
                 }, number);
             }
             catch (Exception ex)
@@ -289,11 +272,6 @@ namespace Email.Windows
         /// <param name="e"></param>
         private async void Menu_GetAllEmail_Click(object sender, EventArgs e)
         {
-            if (lbl_progressbar.Visible)
-            {
-                Logger("正在获取所有邮件,请耐心等待！");
-                return;
-            }
             var node = TreeView_Email.SelectedNode;
             if (node == null)
                 return;
@@ -302,8 +280,6 @@ namespace Email.Windows
                 Logger("正在获取所有邮件请耐心等待！");
                 return;
             }
-            lbl_progressbar.Visible = true;
-            lbl_thisNumber.Visible = true;
             node.Name = "true";
             var model = (EmailManger)node.Tag;
             await AsyncEmail(model, null);
@@ -330,19 +306,20 @@ namespace Email.Windows
         /// <param name="e"></param>
         private void MenuAllBackEmail_Click(object sender, EventArgs e)
         {
-            var backSql = new EmailListView { Title = "退信" }.GetBackEmail;
-            var result = Db.ExecuteQuery<EmailListView>(backSql.Item1, backSql.Item2);
+            MessageBox.Show("暂未实现当前功能！", "提示信息");
+            //var backSql = new EmailListView { Title = "退信" }.GetBackEmail;
+            //var result = Db.ExecuteQuery<EmailListView>(backSql.Item1, backSql.Item2);
 
-            var email = new List<string>();
-            foreach (var item in result)
-            {
-                var receiver = item.Body.Split(new char[] { '\r', '\n' }).Where(s => s.Contains("收件人")).FirstOrDefault();
-                if (receiver != null)
-                    receiver = receiver.Replace("收件人", string.Empty);
-                var emailAll = receiver.Replace(" ", string.Empty).Split(',');
-                email.AddRange(emailAll);
-            }
-            Logger(email);
+            //var email = new List<string>();
+            //foreach (var item in result)
+            //{
+            //    var receiver = item.Body.Split(new char[] { '\r', '\n' }).Where(s => s.Contains("收件人")).FirstOrDefault();
+            //    if (receiver != null)
+            //        receiver = receiver.Replace("收件人", string.Empty);
+            //    var emailAll = receiver.Replace(" ", string.Empty).Split(',');
+            //    email.AddRange(emailAll);
+            //}
+            //Logger(email);
         }
         #endregion
 
@@ -652,9 +629,11 @@ namespace Email.Windows
 
         private void btn_addUserEmail_Click(object sender, EventArgs e)
         {
-            Button btn = new Button();
-            btn.Text = "随机";
-            btn.Dock = DockStyle.Left;
+            Button btn = new Button
+            {
+                Text = "随机",
+                Dock = DockStyle.Left
+            };
             pan_UserEmail.Controls.Add(btn);
         }
 

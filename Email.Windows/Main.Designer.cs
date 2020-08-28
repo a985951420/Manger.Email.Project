@@ -40,10 +40,11 @@ namespace Email.Windows
             this.cms_add = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu_GetEmail = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAllBackEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_GetAllEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.Menu_Add = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Update = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Delete = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu_GetAllEmail = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.tabControl_Main = new System.Windows.Forms.TabControl();
@@ -63,9 +64,7 @@ namespace Email.Windows
             this.txt_logger = new Email.Windows.Tools.AsyncTextBoxControl();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.lbl_thisNumber = new Email.Windows.Tools.AsyncLabelControl();
             this.TreeView_Email = new System.Windows.Forms.TreeView();
-            this.lbl_progressbar = new Email.Windows.Tools.AsyncProgressBarControl();
             this.txt_current = new Email.Windows.Tools.AsyncTextBoxControl();
             this.lbl_time = new Email.Windows.Tools.AsyncLabelControl();
             this.btn_up = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -78,12 +77,11 @@ namespace Email.Windows
             this.label9 = new Email.Windows.Tools.AsyncLabelControl();
             this.label13 = new Email.Windows.Tools.AsyncLabelControl();
             this.label2 = new Email.Windows.Tools.AsyncLabelControl();
-            this.marqueeLabel1 = new Email.Windows.Tools.MarqueeLabel();
             this.label10 = new Email.Windows.Tools.AsyncLabelControl();
             this.lbl_totalPage = new Email.Windows.Tools.AsyncLabelControl();
             this.label11 = new Email.Windows.Tools.AsyncLabelControl();
             this.tab_send = new System.Windows.Forms.TabPage();
-            this.txt_sendLogger = new AsyncTextBoxControl();
+            this.txt_sendLogger = new Email.Windows.Tools.AsyncTextBoxControl();
             this.btn_Send = new System.Windows.Forms.Button();
             this.pan_UserEmail = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -147,57 +145,64 @@ namespace Email.Windows
             // cms_add
             // 
             this.cms_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cms_add.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cms_add.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Menu_GetEmail,
             this.MenuAllBackEmail,
+            this.Menu_GetAllEmail,
+            this.toolStripSeparator1,
             this.Menu_Add,
             this.Menu_Update,
-            this.Menu_Delete,
-            this.Menu_GetAllEmail});
+            this.Menu_Delete});
             this.cms_add.Name = "cms_add";
-            this.cms_add.Size = new System.Drawing.Size(149, 136);
+            this.cms_add.Size = new System.Drawing.Size(153, 142);
             // 
             // Menu_GetEmail
             // 
             this.Menu_GetEmail.Name = "Menu_GetEmail";
-            this.Menu_GetEmail.Size = new System.Drawing.Size(148, 22);
+            this.Menu_GetEmail.Size = new System.Drawing.Size(152, 22);
             this.Menu_GetEmail.Text = "获取最近邮件";
             this.Menu_GetEmail.Click += new System.EventHandler(this.Menu_GetEmail_Click);
             // 
             // MenuAllBackEmail
             // 
             this.MenuAllBackEmail.Name = "MenuAllBackEmail";
-            this.MenuAllBackEmail.Size = new System.Drawing.Size(148, 22);
+            this.MenuAllBackEmail.Size = new System.Drawing.Size(152, 22);
             this.MenuAllBackEmail.Text = "退件邮箱获取";
             this.MenuAllBackEmail.Click += new System.EventHandler(this.MenuAllBackEmail_Click);
+            // 
+            // Menu_GetAllEmail
+            // 
+            this.Menu_GetAllEmail.Name = "Menu_GetAllEmail";
+            this.Menu_GetAllEmail.Size = new System.Drawing.Size(152, 22);
+            this.Menu_GetAllEmail.Text = "获取所有邮件";
+            this.Menu_GetAllEmail.Click += new System.EventHandler(this.Menu_GetAllEmail_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // Menu_Add
             // 
             this.Menu_Add.Name = "Menu_Add";
-            this.Menu_Add.Size = new System.Drawing.Size(148, 22);
-            this.Menu_Add.Text = "添加";
+            this.Menu_Add.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Add.Text = "添加邮箱";
             this.Menu_Add.Click += new System.EventHandler(this.Menu_Add_Click);
             // 
             // Menu_Update
             // 
             this.Menu_Update.Name = "Menu_Update";
-            this.Menu_Update.Size = new System.Drawing.Size(148, 22);
-            this.Menu_Update.Text = "修改";
+            this.Menu_Update.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Update.Text = "修改邮箱";
             this.Menu_Update.Click += new System.EventHandler(this.Menu_Update_Click);
             // 
             // Menu_Delete
             // 
             this.Menu_Delete.Name = "Menu_Delete";
-            this.Menu_Delete.Size = new System.Drawing.Size(148, 22);
-            this.Menu_Delete.Text = "删除";
+            this.Menu_Delete.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Delete.Text = "删除邮箱";
             this.Menu_Delete.Click += new System.EventHandler(this.Menu_Delete_Click);
-            // 
-            // Menu_GetAllEmail
-            // 
-            this.Menu_GetAllEmail.Name = "Menu_GetAllEmail";
-            this.Menu_GetAllEmail.Size = new System.Drawing.Size(148, 22);
-            this.Menu_GetAllEmail.Text = "获取所有邮件";
-            this.Menu_GetAllEmail.Click += new System.EventHandler(this.Menu_GetAllEmail_Click);
             // 
             // notifyIcon
             // 
@@ -241,8 +246,10 @@ namespace Email.Windows
             // 
             // kryptonGroupBox2
             // 
-            this.kryptonGroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonGroupBox2.Location = new System.Drawing.Point(439, 3);
+            this.kryptonGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonGroupBox2.Location = new System.Drawing.Point(437, 3);
             this.kryptonGroupBox2.Name = "kryptonGroupBox2";
             // 
             // kryptonGroupBox2.Panel
@@ -256,7 +263,7 @@ namespace Email.Windows
             this.kryptonGroupBox2.Panel.Controls.Add(this.label7);
             this.kryptonGroupBox2.Panel.Controls.Add(this.label6);
             this.kryptonGroupBox2.Panel.Controls.Add(this.label5);
-            this.kryptonGroupBox2.Size = new System.Drawing.Size(940, 636);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(942, 636);
             this.kryptonGroupBox2.TabIndex = 40;
             this.kryptonGroupBox2.Values.Heading = "邮件详情";
             // 
@@ -275,7 +282,7 @@ namespace Email.Windows
             this.webBrowser1.Margin = new System.Windows.Forms.Padding(2);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(12, 12);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(936, 513);
+            this.webBrowser1.Size = new System.Drawing.Size(938, 513);
             this.webBrowser1.TabIndex = 45;
             this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             // 
@@ -288,6 +295,7 @@ namespace Email.Windows
             this.txt_sendTime.Name = "txt_sendTime";
             this.txt_sendTime.Size = new System.Drawing.Size(861, 23);
             this.txt_sendTime.TabIndex = 44;
+            this.txt_sendTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_logger_KeyPress);
             // 
             // txt_sender
             // 
@@ -298,6 +306,7 @@ namespace Email.Windows
             this.txt_sender.Name = "txt_sender";
             this.txt_sender.Size = new System.Drawing.Size(861, 23);
             this.txt_sender.TabIndex = 43;
+            this.txt_sender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_logger_KeyPress);
             // 
             // txt_title
             // 
@@ -308,6 +317,7 @@ namespace Email.Windows
             this.txt_title.Name = "txt_title";
             this.txt_title.Size = new System.Drawing.Size(861, 23);
             this.txt_title.TabIndex = 42;
+            this.txt_title.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_logger_KeyPress);
             // 
             // label8
             // 
@@ -355,7 +365,9 @@ namespace Email.Windows
             // 
             // kryptonGroupBox1
             // 
-            this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.kryptonGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonGroupBox1.Location = new System.Drawing.Point(3, 3);
             this.kryptonGroupBox1.Name = "kryptonGroupBox1";
             // 
@@ -364,9 +376,7 @@ namespace Email.Windows
             this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonGroupBox4);
             this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel2);
             this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel1);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.lbl_thisNumber);
             this.kryptonGroupBox1.Panel.Controls.Add(this.TreeView_Email);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.lbl_progressbar);
             this.kryptonGroupBox1.Panel.Controls.Add(this.txt_current);
             this.kryptonGroupBox1.Panel.Controls.Add(this.lbl_time);
             this.kryptonGroupBox1.Panel.Controls.Add(this.btn_up);
@@ -377,24 +387,23 @@ namespace Email.Windows
             this.kryptonGroupBox1.Panel.Controls.Add(this.label9);
             this.kryptonGroupBox1.Panel.Controls.Add(this.label13);
             this.kryptonGroupBox1.Panel.Controls.Add(this.label2);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.marqueeLabel1);
             this.kryptonGroupBox1.Panel.Controls.Add(this.label10);
             this.kryptonGroupBox1.Panel.Controls.Add(this.lbl_totalPage);
             this.kryptonGroupBox1.Panel.Controls.Add(this.label11);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(436, 636);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(430, 636);
             this.kryptonGroupBox1.TabIndex = 39;
             this.kryptonGroupBox1.Values.Heading = "邮箱信息";
             // 
             // kryptonGroupBox4
             // 
             this.kryptonGroupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.kryptonGroupBox4.Location = new System.Drawing.Point(0, 454);
+            this.kryptonGroupBox4.Location = new System.Drawing.Point(0, 448);
             this.kryptonGroupBox4.Name = "kryptonGroupBox4";
             // 
             // kryptonGroupBox4.Panel
             // 
             this.kryptonGroupBox4.Panel.Controls.Add(this.txt_logger);
-            this.kryptonGroupBox4.Size = new System.Drawing.Size(432, 158);
+            this.kryptonGroupBox4.Size = new System.Drawing.Size(426, 164);
             this.kryptonGroupBox4.TabIndex = 61;
             this.kryptonGroupBox4.Values.Heading = "日志";
             // 
@@ -408,8 +417,9 @@ namespace Email.Windows
             this.txt_logger.Multiline = true;
             this.txt_logger.Name = "txt_logger";
             this.txt_logger.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_logger.Size = new System.Drawing.Size(428, 134);
+            this.txt_logger.Size = new System.Drawing.Size(422, 140);
             this.txt_logger.TabIndex = 13;
+            this.txt_logger.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_logger_KeyPress);
             // 
             // kryptonLabel2
             // 
@@ -427,18 +437,6 @@ namespace Email.Windows
             this.kryptonLabel1.TabIndex = 47;
             this.kryptonLabel1.Values.Text = "当前邮箱：";
             // 
-            // lbl_thisNumber
-            // 
-            this.lbl_thisNumber.Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_thisNumber.Location = new System.Drawing.Point(2, 431);
-            this.lbl_thisNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_thisNumber.Name = "lbl_thisNumber";
-            this.lbl_thisNumber.Size = new System.Drawing.Size(49, 20);
-            this.lbl_thisNumber.TabIndex = 57;
-            this.lbl_thisNumber.Text = "第几封";
-            this.lbl_thisNumber.Values.Text = "第几封";
-            this.lbl_thisNumber.Visible = false;
-            // 
             // TreeView_Email
             // 
             this.TreeView_Email.BackColor = System.Drawing.SystemColors.Window;
@@ -446,20 +444,10 @@ namespace Email.Windows
             this.TreeView_Email.Location = new System.Drawing.Point(2, 2);
             this.TreeView_Email.Margin = new System.Windows.Forms.Padding(2);
             this.TreeView_Email.Name = "TreeView_Email";
-            this.TreeView_Email.Size = new System.Drawing.Size(130, 79);
+            this.TreeView_Email.Size = new System.Drawing.Size(130, 414);
             this.TreeView_Email.TabIndex = 40;
             this.TreeView_Email.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TreeView_Email_MouseClick);
             this.TreeView_Email.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeView_Email_MouseDown);
-            // 
-            // lbl_progressbar
-            // 
-            this.lbl_progressbar.Location = new System.Drawing.Point(2, 422);
-            this.lbl_progressbar.Margin = new System.Windows.Forms.Padding(2);
-            this.lbl_progressbar.Maximum = 1000;
-            this.lbl_progressbar.Name = "lbl_progressbar";
-            this.lbl_progressbar.Size = new System.Drawing.Size(192, 10);
-            this.lbl_progressbar.TabIndex = 58;
-            this.lbl_progressbar.Visible = false;
             // 
             // txt_current
             // 
@@ -515,7 +503,6 @@ namespace Email.Windows
             this.lbl_email.Size = new System.Drawing.Size(200, 23);
             this.lbl_email.TabIndex = 55;
             this.lbl_email.TabStop = false;
-            this.lbl_email.Text = "email";
             // 
             // grid_View
             // 
@@ -530,14 +517,14 @@ namespace Email.Windows
             this.grid_View.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Title,
             this.SendTime});
-            this.grid_View.Location = new System.Drawing.Point(0, 86);
+            this.grid_View.Location = new System.Drawing.Point(137, 86);
             this.grid_View.Margin = new System.Windows.Forms.Padding(2);
             this.grid_View.Name = "grid_View";
             this.grid_View.ReadOnly = true;
             this.grid_View.RowHeadersVisible = false;
             this.grid_View.RowTemplate.Height = 23;
             this.grid_View.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_View.Size = new System.Drawing.Size(418, 330);
+            this.grid_View.Size = new System.Drawing.Size(281, 330);
             this.grid_View.TabIndex = 43;
             this.grid_View.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_View_CellMouseClick);
             // 
@@ -601,17 +588,6 @@ namespace Email.Windows
             this.label2.TabIndex = 41;
             this.label2.Text = "邮件数：";
             this.label2.Values.Text = "邮件数：";
-            // 
-            // marqueeLabel1
-            // 
-            this.marqueeLabel1.AutoSize = true;
-            this.marqueeLabel1.Location = new System.Drawing.Point(335, 69);
-            this.marqueeLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.marqueeLabel1.Name = "marqueeLabel1";
-            this.marqueeLabel1.Size = new System.Drawing.Size(77, 12);
-            this.marqueeLabel1.TabIndex = 56;
-            this.marqueeLabel1.Text = "有新邮件了！";
-            this.marqueeLabel1.Visible = false;
             // 
             // label10
             // 
@@ -883,9 +859,7 @@ namespace Email.Windows
         private AsyncTextBoxControl txt_logger;
         private KryptonLabel kryptonLabel2;
         private KryptonLabel kryptonLabel1;
-        private AsyncLabelControl lbl_thisNumber;
         private TreeView TreeView_Email;
-        private AsyncProgressBarControl lbl_progressbar;
         private AsyncTextBoxControl txt_current;
         private AsyncLabelControl lbl_time;
         private KryptonButton btn_up;
@@ -898,7 +872,6 @@ namespace Email.Windows
         private AsyncLabelControl label9;
         private AsyncLabelControl label13;
         private AsyncLabelControl label2;
-        private MarqueeLabel marqueeLabel1;
         private AsyncLabelControl label10;
         private AsyncLabelControl lbl_totalPage;
         private AsyncLabelControl label11;
@@ -912,5 +885,6 @@ namespace Email.Windows
         private Button btn_Send;
         private TreeView treeView_EmailSendNumber;
         private AsyncTextBoxControl txt_sendLogger;
+        private ToolStripSeparator toolStripSeparator1;
     }
 }
